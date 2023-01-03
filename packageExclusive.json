@@ -1,0 +1,16 @@
+{
+	"name": "@sajermann/react-input",
+	"version": "0.0.6",
+	"description": "Library created for implements super power in input.",
+	"main": "index.js",
+	"publishConfig": {
+		"access": "public"
+	},
+	"repository": {
+		"type": "git",
+		"url": "https://github.com/sajermann/SajermannReactInput"
+	},
+	"keywords": ["ui", "react", "front-end", "css"],
+	"author": "Bruno Sajermann",
+	"license": "ISC"
+}
