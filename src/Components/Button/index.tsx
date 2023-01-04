@@ -1,6 +1,5 @@
 /* eslint-disable react/button-has-type */
 import { useEffect, useMemo, useRef, useState } from 'react';
-import { Loading } from '../Loading';
 
 import { useWindowSize } from '../../Hooks/UseWindowSize';
 import { Icons } from '../Icons';
@@ -82,12 +81,10 @@ function Button({
 			withFeedback?.loadingOptions.isLoading &&
 			!withFeedback?.loadingOptions.customIcon
 		) {
-			return (
-				<Loading
-					type={withFeedback.loadingOptions.typeLoadingIcon}
-					data-testid="loadingIcon"
-				/>
-			);
+			if (withFeedback.loadingOptions.typeLoadingIcon === 'Points') {
+				return <Icons.LoadingPoints />;
+			}
+			return <Icons.LoadingCircle />;
 		}
 
 		if (

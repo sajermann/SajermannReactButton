@@ -199,7 +199,7 @@ function App() {
 								isLoading,
 							},
 							failedOptions: {
-								failed,
+								failed: true,
 							},
 						}}
 					>
