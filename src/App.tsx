@@ -9,6 +9,10 @@ function SubContainer({ children }: { children: React.ReactNode }) {
 	return <div className={styles.subContainer}>{children}</div>;
 }
 
+function SubContainerButton({ children }: { children: React.ReactNode }) {
+	return <div className={styles.subContainerButton}>{children}</div>;
+}
+
 function App() {
 	const [isLoading, setIsLoading] = useState(false);
 	const [success, setSuccess] = useState(false);
@@ -45,272 +49,329 @@ function App() {
 			</div>
 
 			<SubContainer>
-				<div style={{ width: '300px', height: '30px' }}>
+				<SubContainerButton>
+					<div>Bruno</div>
+				</SubContainerButton>
+				<SubContainerButton>
+					<button type="button" style={{ width: '100%', height: '100%' }}>
+						Normal
+					</button>
+				</SubContainerButton>
+
+				<SubContainerButton>
 					<Button>Default</Button>
-				</div>
+				</SubContainerButton>
 
-				<div style={{ width: '300px', height: '50px' }}>
+				<SubContainerButton>
 					<Button startIcon={<Icons.WhatsappLogo />}>Whats</Button>
+				</SubContainerButton>
+
+				<SubContainerButton>
+					<Button type="button" endIcon={<Icons.TelegramLogo />}>
+						Telegram
+					</Button>
+				</SubContainerButton>
+
+				<SubContainerButton>
+					<Button
+						type="button"
+						startIcon={<Icons.YoutubeLogo />}
+						endIcon={<Icons.YoutubeLogo />}
+					>
+						Youtube
+					</Button>
+				</SubContainerButton>
+
+				<SubContainerButton>
+					<Button
+						disabled
+						type="button"
+						onClick={() => handleSave()}
+						withFeedback={{
+							loadingOptions: {
+								isLoading: true,
+							},
+						}}
+					>
+						Default
+					</Button>
+				</SubContainerButton>
+				<SubContainerButton>
+					<Button
+						disabled
+						type="button"
+						onClick={() => handleSave()}
+						withFeedback={{
+							loadingOptions: {
+								isLoading: true,
+								typeLoadingIcon: 'Points',
+							},
+						}}
+					>
+						Points
+					</Button>
+				</SubContainerButton>
+				<SubContainerButton>
+					<Button
+						disabled
+						type="button"
+						onClick={() => handleSave()}
+						withFeedback={{
+							loadingOptions: {
+								isLoading: true,
+								fullIcon: true,
+							},
+						}}
+					>
+						Full Icon
+					</Button>
+				</SubContainerButton>
+				<SubContainerButton>
+					<Button
+						disabled
+						type="button"
+						onClick={() => handleSave()}
+						withFeedback={{
+							loadingOptions: {
+								isLoading: true,
+								customIcon: <Icons.CustomLoading />,
+							},
+						}}
+					>
+						Custom Icon
+					</Button>
+				</SubContainerButton>
+				<SubContainerButton>
+					<Button
+						disabled={isLoading}
+						type="button"
+						onClick={handleSave}
+						withFeedback={{
+							loadingOptions: {
+								isLoading,
+							},
+							successOptions: {
+								success,
+							},
+						}}
+					>
+						Sucesso
+					</Button>
+				</SubContainerButton>
+				<SubContainerButton>
+					<Button
+						disabled={isLoading}
+						type="button"
+						onClick={handleSave}
+						withFeedback={{
+							loadingOptions: {
+								isLoading,
+							},
+							successOptions: {
+								success,
+								fullIcon: true,
+							},
+						}}
+					>
+						Full Icon
+					</Button>
+				</SubContainerButton>
+
+				<SubContainerButton>
+					<Button
+						disabled={isLoading}
+						type="button"
+						onClick={handleSave}
+						withFeedback={{
+							loadingOptions: {
+								isLoading,
+							},
+							successOptions: {
+								success,
+								customIcon: <Icons.TrendUp />,
+							},
+						}}
+					>
+						Custom Icon
+					</Button>
+				</SubContainerButton>
+
+				<SubContainerButton>
+					<Button
+						disabled={isLoading}
+						type="button"
+						onClick={handleSaveFailed}
+						withFeedback={{
+							loadingOptions: {
+								isLoading,
+							},
+							failedOptions: {
+								failed,
+							},
+						}}
+					>
+						Falha
+					</Button>
+				</SubContainerButton>
+
+				<SubContainerButton>
+					<Button
+						disabled={isLoading}
+						type="button"
+						onClick={handleSaveFailed}
+						withFeedback={{
+							loadingOptions: {
+								isLoading,
+							},
+							failedOptions: {
+								failed,
+								fullIcon: true,
+							},
+						}}
+					>
+						Full Icon
+					</Button>
+				</SubContainerButton>
+
+				<SubContainerButton>
+					<Button
+						disabled={isLoading}
+						type="button"
+						onClick={handleSaveFailed}
+						withFeedback={{
+							loadingOptions: {
+								isLoading,
+							},
+							failedOptions: {
+								failed: true,
+								customIcon: <Icons.TrendDown />,
+							},
+						}}
+					>
+						Custom Icon
+					</Button>
+				</SubContainerButton>
+
+				<SubContainerButton>
+					<Button
+						disabled={isLoading}
+						type="button"
+						onClick={handleSave}
+						withFeedback={{
+							loadingOptions: {
+								isLoading,
+								fullIcon: true,
+							},
+							successOptions: {
+								success,
+								fullIcon: true,
+							},
+						}}
+					>
+						Fixo Somente Icone
+					</Button>
+				</SubContainerButton>
+
+				<SubContainerButton>
+					<Button
+						disabled={isLoading}
+						type="button"
+						onClick={handleSave}
+						withFeedback={{
+							loadingOptions: {
+								isLoading,
+							},
+							successOptions: {
+								success,
+							},
+						}}
+					>
+						Fixo Com Icone
+					</Button>
+				</SubContainerButton>
+
+				<SubContainerButton>
+					<Button
+						disabled={isLoading}
+						type="button"
+						onClick={handleSave}
+						withFeedback={{
+							loadingOptions: {
+								isLoading,
+							},
+							successOptions: {
+								success,
+							},
+						}}
+					>
+						Ellipsis
+					</Button>
+				</SubContainerButton>
+
+				<div
+					style={{
+						padding: '5px',
+						display: 'flex',
+						gap: '4px',
+						border: '1px solid',
+						width: '100%',
+					}}
+				>
+					<Button
+						style={{ minWidth: '50px', height: '50px' }}
+						disabled={isLoading}
+						type="button"
+						onClick={handleSave}
+						withFeedback={{
+							loadingOptions: {
+								isLoading,
+							},
+							successOptions: {
+								success,
+							},
+						}}
+						endIcon={<Icons.WhatsappLogo />}
+					/>
+
+					<Button
+						style={{ minWidth: '50px', height: '50px' }}
+						disabled={isLoading}
+						type="button"
+						onClick={handleSave}
+						withFeedback={{
+							loadingOptions: {
+								isLoading,
+								typeLoadingIcon: 'Points',
+							},
+							successOptions: {
+								success,
+							},
+						}}
+						endIcon={<Icons.YoutubeLogo />}
+					/>
+
+					<Button
+						style={{
+							minWidth: '50px',
+							height: '50px',
+							borderRadius: '50%',
+							flexWrap: 'wrap',
+						}}
+						disabled={isLoading}
+						type="button"
+						onClick={handleSave}
+						withFeedback={{
+							loadingOptions: {
+								isLoading,
+								typeLoadingIcon: 'Points',
+							},
+							successOptions: {
+								success,
+							},
+						}}
+						endIcon={<Icons.TelegramLogo />}
+					/>
 				</div>
-
-				<Button type="button" endIcon={<Icons.TelegramLogo />}>
-					Telegram
-				</Button>
-
-				<Button
-					type="button"
-					startIcon={<Icons.YoutubeLogo />}
-					endIcon={<Icons.YoutubeLogo />}
-				>
-					Youtube
-				</Button>
-
-				<Button
-					disabled
-					type="button"
-					onClick={() => handleSave()}
-					withFeedback={{
-						loadingOptions: {
-							isLoading: true,
-						},
-					}}
-				>
-					Default
-				</Button>
-				<Button
-					disabled
-					type="button"
-					onClick={() => handleSave()}
-					withFeedback={{
-						loadingOptions: {
-							isLoading: true,
-							typeLoadingIcon: 'Points',
-						},
-					}}
-				>
-					Points
-				</Button>
-				<Button
-					disabled
-					type="button"
-					onClick={() => handleSave()}
-					withFeedback={{
-						loadingOptions: {
-							isLoading: true,
-							fullIcon: true,
-						},
-					}}
-				>
-					Full Icon
-				</Button>
-				<Button
-					disabled
-					type="button"
-					onClick={() => handleSave()}
-					withFeedback={{
-						loadingOptions: {
-							isLoading: true,
-							customIcon: <Icons.CustomLoading />,
-						},
-					}}
-				>
-					Custom Icon
-				</Button>
-
-				<Button
-					disabled={isLoading}
-					type="button"
-					onClick={handleSave}
-					withFeedback={{
-						loadingOptions: {
-							isLoading,
-						},
-						successOptions: {
-							success,
-						},
-					}}
-				>
-					Sucesso
-				</Button>
-				<Button
-					disabled={isLoading}
-					type="button"
-					onClick={handleSave}
-					withFeedback={{
-						loadingOptions: {
-							isLoading,
-						},
-						successOptions: {
-							success,
-							fullIcon: true,
-						},
-					}}
-				>
-					Full Icon
-				</Button>
-				<Button
-					disabled={isLoading}
-					type="button"
-					onClick={handleSave}
-					withFeedback={{
-						loadingOptions: {
-							isLoading,
-						},
-						successOptions: {
-							success,
-							customIcon: <Icons.TrendUp />,
-						},
-					}}
-				>
-					Custom Icon
-				</Button>
-
-				<Button
-					disabled={isLoading}
-					type="button"
-					onClick={handleSaveFailed}
-					withFeedback={{
-						loadingOptions: {
-							isLoading,
-						},
-						failedOptions: {
-							failed,
-						},
-					}}
-				>
-					Falha
-				</Button>
-				<Button
-					disabled={isLoading}
-					type="button"
-					onClick={handleSaveFailed}
-					withFeedback={{
-						loadingOptions: {
-							isLoading,
-						},
-						failedOptions: {
-							failed,
-							fullIcon: true,
-						},
-					}}
-				>
-					Full Icon
-				</Button>
-				<Button
-					disabled={isLoading}
-					type="button"
-					onClick={handleSaveFailed}
-					withFeedback={{
-						loadingOptions: {
-							isLoading,
-						},
-						failedOptions: {
-							failed: true,
-							customIcon: <Icons.TrendDown />,
-						},
-					}}
-				>
-					Custom Icon
-				</Button>
-
-				<Button
-					style={{ width: '250px', height: '50px' }}
-					disabled={isLoading}
-					type="button"
-					onClick={handleSave}
-					withFeedback={{
-						loadingOptions: {
-							isLoading,
-							fullIcon: true,
-						},
-						successOptions: {
-							success,
-							fullIcon: true,
-						},
-					}}
-				>
-					Fixo Somente Icone
-				</Button>
-				<Button
-					style={{ width: '250px', height: '50px' }}
-					disabled={isLoading}
-					type="button"
-					onClick={handleSave}
-					withFeedback={{
-						loadingOptions: {
-							isLoading,
-						},
-						successOptions: {
-							success,
-						},
-					}}
-				>
-					Fixo Com Icone
-				</Button>
-				<Button
-					style={{ width: '100px', height: '50px' }}
-					disabled={isLoading}
-					type="button"
-					onClick={handleSave}
-					withFeedback={{
-						loadingOptions: {
-							isLoading,
-						},
-						successOptions: {
-							success,
-						},
-					}}
-				>
-					Ellipsis
-				</Button>
-
-				<Button
-					style={{ minWidth: '50px', height: '50px' }}
-					disabled={isLoading}
-					type="button"
-					onClick={handleSave}
-					withFeedback={{
-						loadingOptions: {
-							isLoading,
-						},
-						successOptions: {
-							success,
-						},
-					}}
-					endIcon={<Icons.WhatsappLogo />}
-				/>
-				<Button
-					style={{ minWidth: '50px', height: '50px' }}
-					disabled={isLoading}
-					type="button"
-					onClick={handleSave}
-					withFeedback={{
-						loadingOptions: {
-							isLoading,
-							typeLoadingIcon: 'Points',
-						},
-						successOptions: {
-							success,
-						},
-					}}
-					endIcon={<Icons.YoutubeLogo />}
-				/>
-				<Button
-					style={{ minWidth: '50px', height: '50px', borderRadius: '50%' }}
-					disabled={isLoading}
-					type="button"
-					onClick={handleSave}
-					withFeedback={{
-						loadingOptions: {
-							isLoading,
-							typeLoadingIcon: 'Points',
-						},
-						successOptions: {
-							success,
-						},
-					}}
-					endIcon={<Icons.TelegramLogo />}
-				/>
 			</SubContainer>
 		</main>
 	);

@@ -1,6 +1,5 @@
 /* eslint-disable react/button-has-type */
 import { useEffect, useMemo, useRef, useState } from 'react';
-import styles from './styles.module.css';
 import { Loading } from '../Loading';
 import { FeedbackIcons } from '../FeedbackIcons';
 
@@ -42,6 +41,14 @@ function Button({
 	const [isEllipsisActive, setIsEllipsisActive] = useState(false);
 	const divRef = useRef<HTMLDivElement>(null);
 	const size = useWindowSize();
+
+	const stylesContainerIcon: React.CSSProperties = {
+		width: '24px',
+		height: '24px',
+		display: 'flex',
+		alignItems: 'center',
+		justifyContent: 'center',
+	};
 
 	useEffect(() => {
 		const element = divRef.current;
@@ -130,7 +137,7 @@ function Button({
 			withFeedback?.failedOptions?.failed
 		) {
 			return (
-				<div className={styles.containerIcon}>
+				<div style={stylesContainerIcon}>
 					{buildLoading}
 					{buildFeedbackIcon}
 				</div>
@@ -141,10 +148,19 @@ function Button({
 
 	const buildStartIcon = useMemo(() => {
 		if (startIcon) {
-			return <div className={styles.containerIcon}>{startIcon}</div>;
+			return <div style={stylesContainerIcon}>{startIcon}</div>;
 		}
 		return null;
 	}, [startIcon]);
+
+	const stylesChildren: React.CSSProperties = {
+		width: '100%',
+		overflow: 'hidden',
+		whiteSpace: 'nowrap',
+		textOverflow: 'ellipsis',
+		margin: '0 5px',
+		flex: 1,
+	};
 
 	const buildChildren = useMemo(() => {
 		if (!children) {
@@ -169,7 +185,7 @@ function Button({
 			return null;
 		}
 		return (
-			<div className={styles.text} ref={divRef} title={verifyEllipsis()}>
+			<div style={stylesChildren} ref={divRef} title={verifyEllipsis()}>
 				{children}
 			</div>
 		);
@@ -182,13 +198,14 @@ function Button({
 			!withFeedback?.successOptions?.success &&
 			!withFeedback?.failedOptions?.failed
 		) {
-			return <div className={styles.containerIcon}>{endIcon}</div>;
+			return <div style={stylesContainerIcon}>{endIcon}</div>;
 		}
 		return null;
 	}, [endIcon, withFeedback]);
 
 	const stylesFoda: React.CSSProperties = {
-		position: 'relative',
+		// display: 'flex',
+		// position: 'relative',
 		overflow: 'hidden',
 		cursor: 'pointer',
 		width: '100%',
@@ -202,6 +219,13 @@ function Button({
 
 	const disabledStyle: React.CSSProperties = {
 		cursor: 'not-allowed',
+	};
+
+	const subContainer: React.CSSProperties = {
+		display: 'flex',
+		alignItems: 'center',
+		justifyContent: 'center',
+		width: '100%',
 	};
 
 	function verifyStyles() {
@@ -223,13 +247,8 @@ function Button({
 	}
 
 	return (
-		<button
-			{...props}
-			type={type}
-			className={`${props.className}`}
-			style={verifyStyles()}
-		>
-			<div className={styles.internal}>
+		<button type={type} {...props} style={verifyStyles()}>
+			<div style={subContainer}>
 				{buildStartIcon}
 				{buildChildren}
 				{mainFeedback}
