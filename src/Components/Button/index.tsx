@@ -1,9 +1,9 @@
 /* eslint-disable react/button-has-type */
 import { useEffect, useMemo, useRef, useState } from 'react';
 import { Loading } from '../Loading';
-import { FeedbackIcons } from '../FeedbackIcons';
 
 import { useWindowSize } from '../../Hooks/UseWindowSize';
+import { Icons } from '../Icons';
 
 type PropsFeedBack = {
 	loadingOptions: {
@@ -27,6 +27,9 @@ type PropsFeedBack = {
 interface Props extends React.ButtonHTMLAttributes<HTMLButtonElement> {
 	startIcon?: JSX.Element;
 	endIcon?: JSX.Element;
+	containerIconsProps?: React.AllHTMLAttributes<HTMLDivElement>;
+	containerInsideProps?: React.AllHTMLAttributes<HTMLDivElement>;
+	containerChildrenProps?: React.AllHTMLAttributes<HTMLDivElement>;
 	withFeedback?: PropsFeedBack;
 }
 
@@ -36,6 +39,9 @@ function Button({
 	children,
 	startIcon,
 	endIcon,
+	containerIconsProps,
+	containerInsideProps,
+	containerChildrenProps,
 	...props
 }: Props) {
 	const [isEllipsisActive, setIsEllipsisActive] = useState(false);
@@ -61,10 +67,6 @@ function Button({
 		);
 	}, [size]);
 
-	function verifyColorIcon(opacity?: number) {
-		return '';
-	}
-
 	function verifyEllipsis() {
 		if (props.title) {
 			return props.title;
@@ -82,7 +84,6 @@ function Button({
 		) {
 			return (
 				<Loading
-					color={verifyColorIcon()}
 					type={withFeedback.loadingOptions.typeLoadingIcon}
 					data-testid="loadingIcon"
 				/>
@@ -106,7 +107,7 @@ function Button({
 			withFeedback?.successOptions?.success &&
 			!withFeedback?.successOptions?.customIcon
 		) {
-			return <FeedbackIcons name="Success" color={verifyColorIcon()} />;
+			return <Icons.Success />;
 		}
 		if (
 			withFeedback?.successOptions?.success &&
@@ -118,7 +119,7 @@ function Button({
 			withFeedback?.failedOptions?.failed &&
 			!withFeedback?.failedOptions?.customIcon
 		) {
-			return <FeedbackIcons name="Failed" color={verifyColorIcon()} />;
+			return <Icons.Failed />;
 		}
 		if (
 			withFeedback?.failedOptions?.failed &&
@@ -137,7 +138,10 @@ function Button({
 			withFeedback?.failedOptions?.failed
 		) {
 			return (
-				<div style={stylesContainerIcon}>
+				<div
+					{...containerIconsProps}
+					style={{ ...stylesContainerIcon, ...containerIconsProps?.style }}
+				>
 					{buildLoading}
 					{buildFeedbackIcon}
 				</div>
@@ -148,7 +152,14 @@ function Button({
 
 	const buildStartIcon = useMemo(() => {
 		if (startIcon) {
-			return <div style={stylesContainerIcon}>{startIcon}</div>;
+			return (
+				<div
+					{...containerIconsProps}
+					style={{ ...stylesContainerIcon, ...containerIconsProps?.style }}
+				>
+					{startIcon}
+				</div>
+			);
 		}
 		return null;
 	}, [startIcon]);
@@ -185,7 +196,12 @@ function Button({
 			return null;
 		}
 		return (
-			<div style={stylesChildren} ref={divRef} title={verifyEllipsis()}>
+			<div
+				ref={divRef}
+				title={verifyEllipsis()}
+				{...containerChildrenProps}
+				style={{ ...stylesChildren, ...containerChildrenProps?.style }}
+			>
 				{children}
 			</div>
 		);
@@ -198,14 +214,19 @@ function Button({
 			!withFeedback?.successOptions?.success &&
 			!withFeedback?.failedOptions?.failed
 		) {
-			return <div style={stylesContainerIcon}>{endIcon}</div>;
+			return (
+				<div
+					{...containerIconsProps}
+					style={{ ...stylesContainerIcon, ...containerIconsProps?.style }}
+				>
+					{endIcon}
+				</div>
+			);
 		}
 		return null;
 	}, [endIcon, withFeedback]);
 
 	const stylesFoda: React.CSSProperties = {
-		// display: 'flex',
-		// position: 'relative',
 		overflow: 'hidden',
 		cursor: 'pointer',
 		width: '100%',
@@ -248,7 +269,10 @@ function Button({
 
 	return (
 		<button type={type} {...props} style={verifyStyles()}>
-			<div style={subContainer}>
+			<div
+				{...containerInsideProps}
+				style={{ ...subContainer, ...containerInsideProps?.style }}
+			>
 				{buildStartIcon}
 				{buildChildren}
 				{mainFeedback}

@@ -44,17 +44,10 @@ function App() {
 
 	return (
 		<main className={styles.main}>
-			<div>
-				<div>{`import { Input } from '@sajermann/ui-react';`}</div>
-			</div>
-
 			<SubContainer>
 				<SubContainerButton>
-					<div>Bruno</div>
-				</SubContainerButton>
-				<SubContainerButton>
 					<button type="button" style={{ width: '100%', height: '100%' }}>
-						Normal
+						Botão Normal Sem Lib
 					</button>
 				</SubContainerButton>
 
@@ -63,7 +56,7 @@ function App() {
 				</SubContainerButton>
 
 				<SubContainerButton>
-					<Button startIcon={<Icons.WhatsappLogo />}>Whats</Button>
+					<Button startIcon={<Icons.WhatsappLogo />}>Icone no Início</Button>
 				</SubContainerButton>
 
 				<SubContainerButton>
@@ -315,10 +308,10 @@ function App() {
 						gap: '4px',
 						border: '1px solid',
 						width: '100%',
+						flexWrap: 'wrap',
 					}}
 				>
 					<Button
-						style={{ minWidth: '50px', height: '50px' }}
 						disabled={isLoading}
 						type="button"
 						onClick={handleSave}
@@ -334,7 +327,6 @@ function App() {
 					/>
 
 					<Button
-						style={{ minWidth: '50px', height: '50px' }}
 						disabled={isLoading}
 						type="button"
 						onClick={handleSave}
@@ -355,7 +347,7 @@ function App() {
 							minWidth: '50px',
 							height: '50px',
 							borderRadius: '50%',
-							flexWrap: 'wrap',
+							border: 'none',
 						}}
 						disabled={isLoading}
 						type="button"
