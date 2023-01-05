@@ -1,5 +1,5 @@
 {
-	"name": "@sajermann/react-input",
+	"name": "@sajermann/react-button",
 	"private": true,
 	"type": "module",
 	"scripts": {
@@ -12,12 +12,10 @@
 		"build:vite": "tsc && vite build"
 	},
 	"dependencies": {
-		"@rollup/plugin-terser": "^0.2.1",
 		"react": "^18.2.0",
 		"react-dom": "^18.2.0"
 	},
 	"devDependencies": {
-		"@rollup/plugin-typescript": "^8.3.4",
 		"@testing-library/jest-dom": "^5.16.5",
 		"@testing-library/react": "^13.4.0",
 		"@testing-library/user-event": "^14.4.3",
@@ -38,7 +36,8 @@
 		"eslint-plugin-react-hooks": "^4.6.0",
 		"jsdom": "^20.0.3",
 		"prettier": "^2.7.1",
-		"rollup": "^2.77.2",
+		"rollup": "^3.9.0",
+		"rollup-plugin-ts": "^3.0.2",
 		"ts-node": "^10.9.1",
 		"typescript": "^4.6.4",
 		"vite": "^3.0.0",
