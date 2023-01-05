@@ -1,6 +1,6 @@
 {
 	"name": "@sajermann/react-button",
-	"version": "0.0.6",
+	"version": "0.0.2",
 	"description": "Library created for implements super power in button.",
 	"main": "index.js",
 	"publishConfig": {
