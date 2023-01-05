@@ -20,3 +20,19 @@
 	border: 1px solid;
 	padding: 5px;
 }
+
+.primary {
+	background-color: blue;
+	color: white;
+	transition-duration: 1s;
+	height: 40px;
+	border-radius: 5px;
+}
+
+.primary:hover {
+	background-color: cornflowerblue;
+}
+
+.primary:disabled {
+	opacity: 50%;
+}

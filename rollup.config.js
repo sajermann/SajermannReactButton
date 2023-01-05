@@ -1,4 +1,5 @@
 import ts from 'rollup-plugin-ts';
+import terser from '@rollup/plugin-terser';
 
 export default [
 	{
@@ -6,6 +7,7 @@ export default [
 		output: {
 			dir: 'build',
 			format: 'esm',
+			preserveModules: false, // One file bundle
 		},
 		plugins: [
 			ts({
@@ -16,6 +18,7 @@ export default [
 					declarationDir: 'build',
 				},
 			}),
+			// terser(), // minify
 		],
 	},
 ];

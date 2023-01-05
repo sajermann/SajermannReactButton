@@ -137,7 +137,11 @@ function Button({
 			return (
 				<div
 					{...containerIconsProps}
-					style={{ ...stylesContainerIcon, ...containerIconsProps?.style }}
+					style={{
+						marginRight: 5,
+						...stylesContainerIcon,
+						...containerIconsProps?.style,
+					}}
 				>
 					{buildLoading}
 					{buildFeedbackIcon}
@@ -152,7 +156,11 @@ function Button({
 			return (
 				<div
 					{...containerIconsProps}
-					style={{ ...stylesContainerIcon, ...containerIconsProps?.style }}
+					style={{
+						marginLeft: 5,
+						...stylesContainerIcon,
+						...containerIconsProps?.style,
+					}}
 				>
 					{startIcon}
 				</div>
@@ -214,7 +222,11 @@ function Button({
 			return (
 				<div
 					{...containerIconsProps}
-					style={{ ...stylesContainerIcon, ...containerIconsProps?.style }}
+					style={{
+						marginRight: children ? 5 : 0,
+						...stylesContainerIcon,
+						...containerIconsProps?.style,
+					}}
 				>
 					{endIcon}
 				</div>

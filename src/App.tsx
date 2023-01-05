@@ -3,7 +3,7 @@ import React, { useState } from 'react';
 import { Button } from './Components/Button';
 
 import styles from './App.module.css';
-import { Icons } from './Components/Icons';
+import { Icons } from './Icons';
 
 function SubContainer({ children }: { children: React.ReactNode }) {
 	return <div className={styles.subContainer}>{children}</div>;
@@ -60,18 +60,15 @@ function App() {
 				</SubContainerButton>
 
 				<SubContainerButton>
-					<Button type="button" endIcon={<Icons.TelegramLogo />}>
-						Telegram
-					</Button>
+					<Button endIcon={<Icons.TelegramLogo />}>Icone no Fim</Button>
 				</SubContainerButton>
 
 				<SubContainerButton>
 					<Button
-						type="button"
 						startIcon={<Icons.YoutubeLogo />}
 						endIcon={<Icons.YoutubeLogo />}
 					>
-						Youtube
+						Icone no Início/Fim
 					</Button>
 				</SubContainerButton>
 
@@ -86,13 +83,12 @@ function App() {
 							},
 						}}
 					>
-						Default
+						Is Loading Default
 					</Button>
 				</SubContainerButton>
 				<SubContainerButton>
 					<Button
 						disabled
-						type="button"
 						onClick={() => handleSave()}
 						withFeedback={{
 							loadingOptions: {
@@ -101,43 +97,40 @@ function App() {
 							},
 						}}
 					>
-						Points
+						Is Loading Points
 					</Button>
 				</SubContainerButton>
 				<SubContainerButton>
 					<Button
-						disabled
-						type="button"
+						disabled={isLoading}
 						onClick={() => handleSave()}
 						withFeedback={{
 							loadingOptions: {
-								isLoading: true,
+								isLoading,
 								fullIcon: true,
 							},
 						}}
 					>
-						Full Icon
+						Is Loading Default Full Icon
 					</Button>
 				</SubContainerButton>
 				<SubContainerButton>
 					<Button
-						disabled
-						type="button"
+						disabled={isLoading}
 						onClick={() => handleSave()}
 						withFeedback={{
 							loadingOptions: {
-								isLoading: true,
+								isLoading,
 								customIcon: <Icons.CustomLoading />,
 							},
 						}}
 					>
-						Custom Icon
+						Is Loading Custom Icon
 					</Button>
 				</SubContainerButton>
 				<SubContainerButton>
 					<Button
 						disabled={isLoading}
-						type="button"
 						onClick={handleSave}
 						withFeedback={{
 							loadingOptions: {
@@ -148,13 +141,12 @@ function App() {
 							},
 						}}
 					>
-						Sucesso
+						With Feedback Success
 					</Button>
 				</SubContainerButton>
 				<SubContainerButton>
 					<Button
 						disabled={isLoading}
-						type="button"
 						onClick={handleSave}
 						withFeedback={{
 							loadingOptions: {
@@ -166,14 +158,13 @@ function App() {
 							},
 						}}
 					>
-						Full Icon
+						With Feedback Success Full Icon
 					</Button>
 				</SubContainerButton>
 
 				<SubContainerButton>
 					<Button
 						disabled={isLoading}
-						type="button"
 						onClick={handleSave}
 						withFeedback={{
 							loadingOptions: {
@@ -185,32 +176,30 @@ function App() {
 							},
 						}}
 					>
-						Custom Icon
+						With Feedback Success Custom Icon
 					</Button>
 				</SubContainerButton>
 
 				<SubContainerButton>
 					<Button
 						disabled={isLoading}
-						type="button"
 						onClick={handleSaveFailed}
 						withFeedback={{
 							loadingOptions: {
 								isLoading,
 							},
 							failedOptions: {
-								failed: true,
+								failed,
 							},
 						}}
 					>
-						Falha
+						With Feedback Failed
 					</Button>
 				</SubContainerButton>
 
 				<SubContainerButton>
 					<Button
 						disabled={isLoading}
-						type="button"
 						onClick={handleSaveFailed}
 						withFeedback={{
 							loadingOptions: {
@@ -222,46 +211,25 @@ function App() {
 							},
 						}}
 					>
-						Full Icon
+						With Feedback Failed Full Icon
 					</Button>
 				</SubContainerButton>
 
 				<SubContainerButton>
 					<Button
 						disabled={isLoading}
-						type="button"
 						onClick={handleSaveFailed}
 						withFeedback={{
 							loadingOptions: {
 								isLoading,
 							},
 							failedOptions: {
-								failed: true,
+								failed,
 								customIcon: <Icons.TrendDown />,
 							},
 						}}
 					>
-						Custom Icon
-					</Button>
-				</SubContainerButton>
-
-				<SubContainerButton>
-					<Button
-						disabled={isLoading}
-						type="button"
-						onClick={handleSave}
-						withFeedback={{
-							loadingOptions: {
-								isLoading,
-								fullIcon: true,
-							},
-							successOptions: {
-								success,
-								fullIcon: true,
-							},
-						}}
-					>
-						Fixo Somente Icone
+						With Feedback Failed Custom Icon
 					</Button>
 				</SubContainerButton>
 
@@ -279,25 +247,10 @@ function App() {
 							},
 						}}
 					>
-						Fixo Com Icone
-					</Button>
-				</SubContainerButton>
-
-				<SubContainerButton>
-					<Button
-						disabled={isLoading}
-						type="button"
-						onClick={handleSave}
-						withFeedback={{
-							loadingOptions: {
-								isLoading,
-							},
-							successOptions: {
-								success,
-							},
-						}}
-					>
-						Ellipsis
+						Ellipsis - Lorem, ipsum dolor sit amet consectetur adipisicing elit.
+						Accusantium vero delectus animi! Reprehenderit nostrum harum unde
+						odio ex deleniti? Labore beatae dolorem quae nam velit nobis
+						inventore blanditiis omnis a.
 					</Button>
 				</SubContainerButton>
 
@@ -313,7 +266,6 @@ function App() {
 				>
 					<Button
 						disabled={isLoading}
-						type="button"
 						onClick={handleSave}
 						withFeedback={{
 							loadingOptions: {
@@ -328,7 +280,6 @@ function App() {
 
 					<Button
 						disabled={isLoading}
-						type="button"
 						onClick={handleSave}
 						withFeedback={{
 							loadingOptions: {
@@ -350,7 +301,6 @@ function App() {
 							border: 'none',
 						}}
 						disabled={isLoading}
-						type="button"
 						onClick={handleSave}
 						withFeedback={{
 							loadingOptions: {
@@ -363,6 +313,30 @@ function App() {
 						}}
 						endIcon={<Icons.TelegramLogo />}
 					/>
+				</div>
+
+				<div style={{ minWidth: 100, width: 150, height: 40 }}>
+					<Button
+						disabled={isLoading}
+						className={styles.primary}
+						endIcon={<Icons.TelegramLogo />}
+						withFeedback={{
+							loadingOptions: {
+								isLoading,
+								typeLoadingIcon: 'Points',
+							},
+							successOptions: {
+								success,
+							},
+
+							failedOptions: {
+								failed,
+								fullIcon: true,
+							},
+						}}
+					>
+						Implementação
+					</Button>
 				</div>
 			</SubContainer>
 		</main>
