@@ -1,9 +1,9 @@
 import React, { useState } from 'react';
 
-import { Button } from './Components/Button';
+import { Button } from './ComponentsNpm/Button';
 
 import styles from './App.module.css';
-import { Icons } from './Icons';
+import { Icons } from './ComponentsInternal/Icons';
 
 function SubContainer({ children }: { children: React.ReactNode }) {
 	return <div className={styles.subContainer}>{children}</div>;

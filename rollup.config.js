@@ -1,9 +1,10 @@
 import ts from 'rollup-plugin-ts';
+import del from 'rollup-plugin-delete';
 import terser from '@rollup/plugin-terser';
 
 export default [
 	{
-		input: 'src/index.ts',
+		input: 'src/ComponentsNpm/index.ts',
 		output: {
 			dir: 'build',
 			format: 'esm',
@@ -18,7 +19,8 @@ export default [
 					declarationDir: 'build',
 				},
 			}),
-			// terser(), // minify
+			del({ targets: 'build/*' }),
+			terser(), // minify
 		],
 	},
 ];
