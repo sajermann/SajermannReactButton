@@ -9,7 +9,7 @@ on:
 
 jobs:
   build:
-		if: github.repository == 'octo-org/octo-repo-prod'
+    if: github.repository == 'octo-org/octo-repo-prod'
     name: Build
     runs-on: ubuntu-latest
     steps:
