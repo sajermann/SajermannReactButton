@@ -1,4 +1,3 @@
-/* eslint-disable react/no-unused-prop-types */
 type Props = {
 	color?: string;
 	width?: number;
