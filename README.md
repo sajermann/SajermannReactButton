@@ -42,3 +42,268 @@ interface Props extends React.ButtonHTMLAttributes<HTMLButtonElement> {
 }
 ```
 
+## Examples
+
+### Default
+```js
+<Button>Default</Button>
+```
+
+### Start Icon
+```js
+<Button startIcon={<Icons.WhatsappLogo />}>Start Icon</Button>
+```
+
+### End Icon
+```js
+<Button endIcon={<Icons.TelegramLogo />}>End Icon</Button>
+```
+
+### Start/End Icon
+```js
+<Button
+	startIcon={<Icons.YoutubeLogo />}
+	endIcon={<Icons.YoutubeLogo />}
+>
+	Start/End Icon
+</Button>
+```
+
+### Is Loading Default
+```js
+<Button
+	disabled
+	type="button"
+	onClick={() => handleSave()}
+	withFeedback={{
+		loadingOptions: {
+			isLoading: true,
+		},
+	}}
+>
+	Is Loading Default
+</Button>
+```
+
+### Is Loading Points
+```js
+<Button
+	disabled
+	onClick={() => handleSave()}
+	withFeedback={{
+		loadingOptions: {
+			isLoading: true,
+			typeLoadingIcon: 'Points',
+		},
+	}}
+>
+	Is Loading Points
+</Button>
+```
+
+### Is Loading Full Icon
+```js
+<Button
+	disabled={isLoading}
+	onClick={() => handleSave()}
+	withFeedback={{
+		loadingOptions: {
+			isLoading,
+			fullIcon: true,
+		},
+	}}
+>
+	Is Loading Full Icon
+</Button>
+```
+
+### Is Loading Custom Icon
+```js
+<Button
+	disabled={isLoading}
+	onClick={() => handleSave()}
+	withFeedback={{
+		loadingOptions: {
+			isLoading,
+			customIcon: <Icons.CustomLoading />,
+		},
+	}}
+>
+	Is Loading Custom Icon
+</Button>
+```
+
+### With Feedback Success
+```js
+<Button
+	disabled={isLoading}
+	onClick={handleSave}
+	withFeedback={{
+		loadingOptions: {
+			isLoading,
+		},
+		successOptions: {
+			success,
+		},
+	}}
+>
+	With Feedback Success
+</Button>
+```
+
+### With Feedback Success Full Icon
+```js
+<Button
+	disabled={isLoading}
+	onClick={handleSave}
+	withFeedback={{
+		loadingOptions: {
+			isLoading,
+		},
+		successOptions: {
+			success,
+			fullIcon: true,
+		},
+	}}
+>
+	With Feedback Success Full Icon
+</Button>
+```
+
+### With Feedback Success Custom Icon
+```js
+<Button
+	disabled={isLoading}
+	onClick={handleSave}
+	withFeedback={{
+		loadingOptions: {
+			isLoading,
+		},
+		successOptions: {
+			success,
+			customIcon: <Icons.TrendUp />,
+		},
+	}}
+>
+	With Feedback Success Custom Icon
+</Button>
+```
+
+### With Feedback Failed
+```js
+<Button
+	disabled={isLoading}
+	onClick={handleSaveFailed}
+	withFeedback={{
+		loadingOptions: {
+			isLoading,
+		},
+		failedOptions: {
+			failed,
+		},
+	}}
+>
+	With Feedback Failed
+</Button>
+```
+
+### With Feedback Failed Full Icon
+```js
+<Button
+	disabled={isLoading}
+	onClick={handleSaveFailed}
+	withFeedback={{
+		loadingOptions: {
+			isLoading,
+		},
+		failedOptions: {
+			failed,
+			fullIcon: true,
+		},
+	}}
+>
+	With Feedback Failed Full Icon
+</Button>
+```
+
+### With Feedback Failed Custom Icon
+```js
+<Button
+	disabled={isLoading}
+	onClick={handleSaveFailed}
+	withFeedback={{
+		loadingOptions: {
+			isLoading,
+		},
+		failedOptions: {
+			failed,
+			customIcon: <Icons.TrendDown />,
+		},
+	}}
+>
+	With Feedback Failed Custom Icon
+</Button>
+```
+
+### Ellipsis
+```js
+<Button
+	disabled={isLoading}
+	type="button"
+	onClick={handleSave}
+	withFeedback={{
+		loadingOptions: {
+			isLoading,
+		},
+		successOptions: {
+			success,
+		},
+	}}
+>
+	Ellipsis - Lorem, ipsum dolor sit amet consectetur adipisicing elit.
+	Accusantium vero delectus animi! Reprehenderit nostrum harum unde
+	odio ex deleniti? Labore beatae dolorem quae nam velit nobis
+	inventore blanditiis omnis a.
+</Button>
+```
+
+### Icon Button - Square
+```js
+<Button
+	disabled={isLoading}
+	onClick={handleSave}
+	withFeedback={{
+		loadingOptions: {
+			isLoading,
+		},
+		successOptions: {
+			success,
+		},
+	}}
+	endIcon={<Icons.WhatsappLogo />}
+/>
+```
+
+### Icon Button - Circle
+```js
+<Button
+	style={{
+		minWidth: '50px',
+		height: '50px',
+		borderRadius: '50%',
+		border: 'none',
+	}}
+	disabled={isLoading}
+	onClick={handleSave}
+	withFeedback={{
+		loadingOptions: {
+			isLoading,
+			typeLoadingIcon: 'Points',
+		},
+		successOptions: {
+			success,
+		},
+	}}
+	endIcon={<Icons.TelegramLogo />}
+/>
+```

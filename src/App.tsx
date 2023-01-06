@@ -86,6 +86,7 @@ function App() {
 						Is Loading Default
 					</Button>
 				</SubContainerButton>
+
 				<SubContainerButton>
 					<Button
 						disabled
@@ -100,6 +101,7 @@ function App() {
 						Is Loading Points
 					</Button>
 				</SubContainerButton>
+
 				<SubContainerButton>
 					<Button
 						disabled={isLoading}
@@ -111,9 +113,10 @@ function App() {
 							},
 						}}
 					>
-						Is Loading Default Full Icon
+						Is Loading Full Icon
 					</Button>
 				</SubContainerButton>
+
 				<SubContainerButton>
 					<Button
 						disabled={isLoading}
@@ -128,6 +131,7 @@ function App() {
 						Is Loading Custom Icon
 					</Button>
 				</SubContainerButton>
+
 				<SubContainerButton>
 					<Button
 						disabled={isLoading}
@@ -144,6 +148,7 @@ function App() {
 						With Feedback Success
 					</Button>
 				</SubContainerButton>
+
 				<SubContainerButton>
 					<Button
 						disabled={isLoading}
