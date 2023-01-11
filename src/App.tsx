@@ -76,7 +76,7 @@ function App() {
 					<Button
 						disabled
 						type="button"
-						onClick={() => handleSave()}
+						onClick={handleSave}
 						withFeedback={{
 							loadingOptions: {
 								isLoading: true,
@@ -90,7 +90,7 @@ function App() {
 				<SubContainerButton>
 					<Button
 						disabled
-						onClick={() => handleSave()}
+						onClick={handleSave}
 						withFeedback={{
 							loadingOptions: {
 								isLoading: true,
@@ -105,7 +105,7 @@ function App() {
 				<SubContainerButton>
 					<Button
 						disabled={isLoading}
-						onClick={() => handleSave()}
+						onClick={handleSave}
 						withFeedback={{
 							loadingOptions: {
 								isLoading,
@@ -120,7 +120,7 @@ function App() {
 				<SubContainerButton>
 					<Button
 						disabled={isLoading}
-						onClick={() => handleSave()}
+						onClick={handleSave}
 						withFeedback={{
 							loadingOptions: {
 								isLoading,

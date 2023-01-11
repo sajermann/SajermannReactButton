@@ -1,5 +1,7 @@
 # @sajermann/react-button
 
+[![Quality Gate Status](https://sonar.sajermann.com/api/project_badges/measure?project=SajermannReactButton&metric=alert_status&token=09bc5f820031cca2e768f3afc49c0b843d6d3d6b)]() [![Coverage](https://sonar.sajermann.com/api/project_badges/measure?project=SajermannReactButton&metric=coverage&token=09bc5f820031cca2e768f3afc49c0b843d6d3d6b)]() [![Bugs](https://sonar.sajermann.com/api/project_badges/measure?project=SajermannReactButton&metric=bugs&token=09bc5f820031cca2e768f3afc49c0b843d6d3d6b)]() [![Code Smells](https://sonar.sajermann.com/api/project_badges/measure?project=SajermannReactButton&metric=code_smells&token=09bc5f820031cca2e768f3afc49c0b843d6d3d6b)]() [![Duplicated Lines (%)](https://sonar.sajermann.com/api/project_badges/measure?project=SajermannReactButton&metric=duplicated_lines_density&token=09bc5f820031cca2e768f3afc49c0b843d6d3d6b)]()
+
 Library created for implements super power in button.
 
 ## Install
