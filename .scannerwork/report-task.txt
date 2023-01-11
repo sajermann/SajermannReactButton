@@ -1,6 +1,0 @@
-projectKey=SajermannReactButton
-serverUrl=https://sonar.sajermann.com
-serverVersion=9.8.0.63668
-dashboardUrl=https://sonar.sajermann.com/dashboard?id=SajermannReactButton
-ceTaskId=AYWgttUe2dFqVHA4TMU8
-ceTaskUrl=https://sonar.sajermann.com/api/ce/task?id=AYWgttUe2dFqVHA4TMU8
