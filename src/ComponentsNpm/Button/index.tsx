@@ -33,6 +33,11 @@ interface ISajermannReactButton
 	withFeedback?: PropsFeedBack;
 }
 
+function isDevelopment(obj: { [i: string]: string }) {
+	if (!import.meta.env.DEV) return {};
+	return obj;
+}
+
 function Button({
 	type,
 	withFeedback,
@@ -48,12 +53,24 @@ function Button({
 	const divRef = useRef<HTMLDivElement>(null);
 	const size = useWindowSize();
 
+	function verifyFullIcon() {
+		const full = '100%';
+		const partialSize = '10%';
+		if (!children) return full;
+		if (withFeedback?.loadingOptions.fullIcon) return full;
+		if (withFeedback?.successOptions?.fullIcon) return full;
+		if (withFeedback?.failedOptions?.fullIcon) return full;
+
+		return partialSize;
+	}
+
 	const stylesContainerIcon: React.CSSProperties = {
-		width: '24px',
-		height: '24px',
+		width: verifyFullIcon(),
+		height: '100%',
 		display: 'flex',
 		alignItems: 'center',
 		justifyContent: 'center',
+		// border: '1px solid',
 	};
 
 	useEffect(() => {
@@ -139,7 +156,7 @@ function Button({
 				<div
 					{...containerIconsProps}
 					style={{
-						marginRight: 5,
+						// marginRight: 5,
 						...stylesContainerIcon,
 						...containerIconsProps?.style,
 					}}
@@ -156,9 +173,10 @@ function Button({
 		if (startIcon) {
 			return (
 				<div
+					{...isDevelopment({ 'data-content': 'buildStartIcon' })}
 					{...containerIconsProps}
 					style={{
-						marginLeft: 5,
+						// marginLeft: 5,
 						...stylesContainerIcon,
 						...containerIconsProps?.style,
 					}}
@@ -175,7 +193,6 @@ function Button({
 		overflow: 'hidden',
 		whiteSpace: 'nowrap',
 		textOverflow: 'ellipsis',
-		margin: '0 5px',
 		flex: 1,
 	};
 
@@ -203,6 +220,7 @@ function Button({
 		}
 		return (
 			<div
+				{...isDevelopment({ 'data-content': 'buildChildren' })}
 				ref={divRef}
 				title={verifyEllipsis()}
 				{...containerChildrenProps}
@@ -222,9 +240,9 @@ function Button({
 		) {
 			return (
 				<div
+					{...isDevelopment({ 'data-content': 'buildEndIcon' })}
 					{...containerIconsProps}
 					style={{
-						marginRight: children ? 5 : 0,
 						...stylesContainerIcon,
 						...containerIconsProps?.style,
 					}}
@@ -239,13 +257,7 @@ function Button({
 	const stylesFoda: React.CSSProperties = {
 		overflow: 'hidden',
 		cursor: 'pointer',
-		width: '100%',
-		height: '100%',
-	};
-
-	const onlyIcon: React.CSSProperties = {
-		minWidth: '44px',
-		maxWidth: '44px',
+		padding: '5px',
 	};
 
 	const disabledStyle: React.CSSProperties = {
@@ -257,13 +269,15 @@ function Button({
 		alignItems: 'center',
 		justifyContent: 'center',
 		width: '100%',
+		height: '100%',
+		gap: '5px',
 	};
 
 	function verifyStyles() {
 		let finalStyles: React.CSSProperties = { ...stylesFoda };
 
 		if (!children) {
-			finalStyles = { ...finalStyles, ...onlyIcon };
+			finalStyles = { ...finalStyles };
 		}
 
 		if (props.disabled) {
@@ -280,6 +294,7 @@ function Button({
 	return (
 		<button type={type} {...props} style={verifyStyles()}>
 			<div
+				{...isDevelopment({ 'data-content': 'containerInsideButton' })}
 				{...containerInsideProps}
 				style={{ ...subContainer, ...containerInsideProps?.style }}
 			>

@@ -60,15 +60,28 @@ function App() {
 				</SubContainerButton>
 
 				<SubContainerButton>
-					<Button startIcon={<Icons.WhatsappLogo />}>Icone no Início</Button>
-				</SubContainerButton>
-
-				<SubContainerButton>
-					<Button endIcon={<Icons.TelegramLogo />}>Icone no Fim</Button>
+					<div style={{ width: 200, height: 40 }}>
+						<Button
+							style={{ width: '100%', height: '100%' }}
+							startIcon={<Icons.WhatsappLogo />}
+						>
+							Icone no Início
+						</Button>
+					</div>
 				</SubContainerButton>
 
 				<SubContainerButton>
 					<Button
+						style={{ width: 200, height: 40 }}
+						endIcon={<Icons.TelegramLogo />}
+					>
+						Icone no Fim
+					</Button>
+				</SubContainerButton>
+
+				<SubContainerButton>
+					<Button
+						style={{ width: 200, height: 40 }}
 						startIcon={<Icons.YoutubeLogo />}
 						endIcon={<Icons.YoutubeLogo />}
 					>
@@ -78,8 +91,8 @@ function App() {
 
 				<SubContainerButton>
 					<Button
+						style={{ width: 200, height: 40 }}
 						disabled
-						type="button"
 						onClick={handleSave}
 						withFeedback={{
 							loadingOptions: {
@@ -93,6 +106,7 @@ function App() {
 
 				<SubContainerButton>
 					<Button
+						style={{ width: 200, height: 40 }}
 						disabled
 						onClick={handleSave}
 						withFeedback={{
@@ -108,6 +122,7 @@ function App() {
 
 				<SubContainerButton>
 					<Button
+						style={{ width: 200, height: 40 }}
 						disabled={isLoading}
 						onClick={handleSave}
 						withFeedback={{
@@ -123,6 +138,7 @@ function App() {
 
 				<SubContainerButton>
 					<Button
+						style={{ width: 200, height: 40 }}
 						disabled={isLoading}
 						onClick={handleSave}
 						withFeedback={{
@@ -138,6 +154,7 @@ function App() {
 
 				<SubContainerButton>
 					<Button
+						style={{ width: 200, height: 40 }}
 						disabled={isLoading}
 						onClick={handleSave}
 						withFeedback={{
@@ -328,7 +345,7 @@ function App() {
 					<Button
 						disabled={isLoading}
 						className={styles.primary}
-						endIcon={<Icons.TelegramLogo />}
+						endIcon={<Icons.YoutubeLogo />}
 						withFeedback={{
 							loadingOptions: {
 								isLoading,
@@ -347,6 +364,48 @@ function App() {
 						Implementação
 					</Button>
 				</div>
+
+				<Button
+					style={{ width: '150px', height: '150px' }}
+					disabled={isLoading}
+					type="button"
+					onClick={handleSave}
+					withFeedback={{
+						loadingOptions: {
+							isLoading,
+						},
+						successOptions: {
+							success,
+						},
+					}}
+					endIcon={<Icons.YoutubeLogo />}
+				/>
+
+				<Button
+					disabled={isLoading}
+					className={`${styles.primary} ${styles.implementsBig}`}
+					startIcon={<Icons.TelegramLogo />}
+					endIcon={<Icons.YoutubeLogo />}
+					withFeedback={{
+						loadingOptions: {
+							isLoading: true,
+							typeLoadingIcon: 'Points',
+						},
+						successOptions: {
+							success,
+						},
+
+						failedOptions: {
+							failed,
+							fullIcon: true,
+						},
+					}}
+				>
+					Lorem ipsum dolor sit amet consectetur adipisicing elit. Laboriosam
+					eveniet voluptate ipsa itaque! Officiis in enim quod architecto
+					delectus fugiat nihil nobis. A sint magnam exercitationem, culpa hic
+					eius doloremque.
+				</Button>
 			</SubContainer>
 		</main>
 	);

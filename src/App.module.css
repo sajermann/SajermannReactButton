@@ -16,7 +16,7 @@
 
 .subContainerButton {
 	width: 100%;
-	height: 30px;
+	/* height: 30px; */
 	border: 1px solid;
 	padding: 5px;
 }
@@ -35,4 +35,9 @@
 
 .primary:disabled {
 	opacity: 50%;
+}
+
+.implementsBig {
+	height: 100px;
+	width: 400px;
 }
