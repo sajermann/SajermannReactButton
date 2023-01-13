@@ -1,9 +1,13 @@
 import React, { useState } from 'react';
 
-import { Button } from './ComponentsNpm/Button';
+import { Button, ISajermannReactButton } from './ComponentsNpm/Button';
 
 import styles from './App.module.css';
 import { Icons } from './ComponentsInternal/Icons';
+
+interface Batata extends ISajermannReactButton {
+	startIcon?: JSX.Element;
+}
 
 function SubContainer({ children }: { children: React.ReactNode }) {
 	return <div className={styles.subContainer}>{children}</div>;

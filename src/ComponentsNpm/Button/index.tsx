@@ -23,7 +23,8 @@ type PropsFeedBack = {
 	};
 };
 
-interface Props extends React.ButtonHTMLAttributes<HTMLButtonElement> {
+interface ISajermannReactButton
+	extends React.ButtonHTMLAttributes<HTMLButtonElement> {
 	startIcon?: JSX.Element;
 	endIcon?: JSX.Element;
 	containerIconsProps?: React.AllHTMLAttributes<HTMLDivElement>;
@@ -42,7 +43,7 @@ function Button({
 	containerInsideProps,
 	containerChildrenProps,
 	...props
-}: Props) {
+}: ISajermannReactButton) {
 	const [isEllipsisActive, setIsEllipsisActive] = useState(false);
 	const divRef = useRef<HTMLDivElement>(null);
 	const size = useWindowSize();
@@ -292,3 +293,4 @@ function Button({
 }
 
 export { Button };
+export type { ISajermannReactButton };
