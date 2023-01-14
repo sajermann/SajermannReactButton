@@ -98,7 +98,7 @@ function LoadingCircle({ width, height, color, ...rest }: Props) {
 function LoadingPoints({ width, height, color, ...rest }: Props) {
 	return (
 		<svg
-			viewBox="-25 -25 100 100"
+			viewBox="-20 -25 100 100"
 			{...rest}
 			width={width || '100%'}
 			height={height || '100%'}

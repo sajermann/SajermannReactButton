@@ -57,9 +57,21 @@ function Button({
 		const full = '100%';
 		const partialSize = '10%';
 		if (!children) return full;
-		if (withFeedback?.loadingOptions.fullIcon) return full;
-		if (withFeedback?.successOptions?.fullIcon) return full;
-		if (withFeedback?.failedOptions?.fullIcon) return full;
+		if (
+			withFeedback?.loadingOptions.isLoading &&
+			withFeedback?.loadingOptions.fullIcon
+		)
+			return full;
+		if (
+			withFeedback?.successOptions?.success &&
+			withFeedback?.successOptions?.fullIcon
+		)
+			return full;
+		if (
+			withFeedback?.failedOptions?.failed &&
+			withFeedback?.failedOptions?.fullIcon
+		)
+			return full;
 
 		return partialSize;
 	}
@@ -70,7 +82,6 @@ function Button({
 		display: 'flex',
 		alignItems: 'center',
 		justifyContent: 'center',
-		// border: '1px solid',
 	};
 
 	useEffect(() => {
@@ -156,7 +167,6 @@ function Button({
 				<div
 					{...containerIconsProps}
 					style={{
-						// marginRight: 5,
 						...stylesContainerIcon,
 						...containerIconsProps?.style,
 					}}
@@ -176,7 +186,6 @@ function Button({
 					{...isDevelopment({ 'data-content': 'buildStartIcon' })}
 					{...containerIconsProps}
 					style={{
-						// marginLeft: 5,
 						...stylesContainerIcon,
 						...containerIconsProps?.style,
 					}}
@@ -258,6 +267,8 @@ function Button({
 		overflow: 'hidden',
 		cursor: 'pointer',
 		padding: '5px',
+		width: '100%',
+		height: '100%',
 	};
 
 	const disabledStyle: React.CSSProperties = {

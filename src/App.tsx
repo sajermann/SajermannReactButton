@@ -60,28 +60,15 @@ function App() {
 				</SubContainerButton>
 
 				<SubContainerButton>
-					<div style={{ width: 200, height: 40 }}>
-						<Button
-							style={{ width: '100%', height: '100%' }}
-							startIcon={<Icons.WhatsappLogo />}
-						>
-							Icone no Início
-						</Button>
-					</div>
+					<Button startIcon={<Icons.WhatsappLogo />}>Icone no Início</Button>
+				</SubContainerButton>
+
+				<SubContainerButton>
+					<Button endIcon={<Icons.TelegramLogo />}>Icone no Fim</Button>
 				</SubContainerButton>
 
 				<SubContainerButton>
 					<Button
-						style={{ width: 200, height: 40 }}
-						endIcon={<Icons.TelegramLogo />}
-					>
-						Icone no Fim
-					</Button>
-				</SubContainerButton>
-
-				<SubContainerButton>
-					<Button
-						style={{ width: 200, height: 40 }}
 						startIcon={<Icons.YoutubeLogo />}
 						endIcon={<Icons.YoutubeLogo />}
 					>
@@ -91,7 +78,6 @@ function App() {
 
 				<SubContainerButton>
 					<Button
-						style={{ width: 200, height: 40 }}
 						disabled
 						onClick={handleSave}
 						withFeedback={{
@@ -106,7 +92,7 @@ function App() {
 
 				<SubContainerButton>
 					<Button
-						style={{ width: 200, height: 40 }}
+						style={{ width: 200 }}
 						disabled
 						onClick={handleSave}
 						withFeedback={{
@@ -122,7 +108,7 @@ function App() {
 
 				<SubContainerButton>
 					<Button
-						style={{ width: 200, height: 40 }}
+						style={{ width: 200 }}
 						disabled={isLoading}
 						onClick={handleSave}
 						withFeedback={{
@@ -138,7 +124,7 @@ function App() {
 
 				<SubContainerButton>
 					<Button
-						style={{ width: 200, height: 40 }}
+						style={{ width: 200 }}
 						disabled={isLoading}
 						onClick={handleSave}
 						withFeedback={{
@@ -154,7 +140,7 @@ function App() {
 
 				<SubContainerButton>
 					<Button
-						style={{ width: 200, height: 40 }}
+						style={{ width: 200 }}
 						disabled={isLoading}
 						onClick={handleSave}
 						withFeedback={{
@@ -287,10 +273,12 @@ function App() {
 						gap: '4px',
 						border: '1px solid',
 						width: '100%',
+						height: '50px',
 						flexWrap: 'wrap',
 					}}
 				>
 					<Button
+						style={{ width: 50, height: 50 }}
 						disabled={isLoading}
 						onClick={handleSave}
 						withFeedback={{
@@ -305,6 +293,7 @@ function App() {
 					/>
 
 					<Button
+						style={{ width: 50, height: 50 }}
 						disabled={isLoading}
 						onClick={handleSave}
 						withFeedback={{
@@ -321,8 +310,8 @@ function App() {
 
 					<Button
 						style={{
-							minWidth: '50px',
-							height: '50px',
+							width: 50,
+							height: 50,
 							borderRadius: '50%',
 							border: 'none',
 						}}
@@ -341,7 +330,7 @@ function App() {
 					/>
 				</div>
 
-				<div style={{ minWidth: 100, width: 150, height: 40 }}>
+				<div style={{ width: 300, height: 50 }}>
 					<Button
 						disabled={isLoading}
 						className={styles.primary}
@@ -388,7 +377,7 @@ function App() {
 					endIcon={<Icons.YoutubeLogo />}
 					withFeedback={{
 						loadingOptions: {
-							isLoading: true,
+							isLoading,
 							typeLoadingIcon: 'Points',
 						},
 						successOptions: {
